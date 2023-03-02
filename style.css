@@ -1,8 +1,22 @@
-/* for removing default margin and paddding */
 * {
   padding: 0;
   margin: 0;
   font-family: Arial, sans-serif;
+}
+
+.main-section-content::-webkit-scrollbar {
+  width: 10px;
+  height: 5px;
+}
+
+.main-section-content::-webkit-scrollbar-track {
+  -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
+  border-radius: 10px;
+}
+
+.main-section-content::-webkit-scrollbar-thumb {
+  border-radius: 10px;
+  -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.5);
 }
 :root {
   --color-primary: #2874f0;
@@ -10,9 +24,6 @@
 body {
   background-color: #f1f3f6;
 }
-
-/* Navbar CSS below here */
-
 .navbar {
   width: 100%;
   position: sticky;
@@ -109,10 +120,14 @@ body {
 }
 .top-image-section {
   height: 112px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
   padding: 5px 30px;
   margin-bottom: -20px;
   text-align: center;
   cursor: pointer;
+  /* width: 100%; */
 }
 .top-image-section:hover p {
   color: var(--color-primary);
@@ -121,6 +136,20 @@ body {
 .top-image-section:hover svg {
   fill: var(--color-primary);
   transform: rotate(90deg);
+}
+.top-image-section:hover ul {
+  display: block;
+  text-align: center;
+  width: 10%;
+  top: 15%;
+  z-index: 1;
+  position: absolute;
+  list-style-type: none;
+  background-color: white;
+  border-radius: 2px;
+  padding: 5px;
+  box-shadow: 0px 0px 10px 5px rgb(0 0 0 / 10%);
+  line-height: 30px;
 }
 .top-image-section svg {
   transition: transform 0.3s ease;
@@ -131,12 +160,16 @@ body {
   height: 64px;
   transition: transform 0.3s ease;
 }
-.top-image-section img:hover {
+.top-image-section:hover img {
   transform: scale(1.1);
 }
 .top-image-section p {
   font-size: 14px;
   font-weight: 600;
+  margin-top: 4px;
+}
+.top-image-section ul {
+  display: none;
 }
 
 .main-section {
@@ -145,11 +178,9 @@ body {
   justify-content: center;
   margin: 10px 0px;
   padding: 8px;
-  width: 100%;
-  height: 100%;
   overflow: hidden;
 }
-/* main section best deals part CSS  */
+/* main section deals part CSS  */
 
 .main-section-best-deals {
   display: flex;
@@ -202,13 +233,14 @@ body {
 .top-heading-content-deals button {
   margin-top: 10px;
 }
-
 /* main section music part CSS  */
+
 .main-section-music {
   background-color: white;
   padding: 10px 0;
   width: 90%;
   height: 360px;
+  overflow: hidden;
 }
 .top-heading {
   display: flex;
@@ -266,13 +298,16 @@ body {
   align-items: center;
   max-width: 1680px;
   width: 100%;
-  overflow: hidden;
+  overflow: inherit;
+  overflow-y: hidden;
+  padding-bottom: 30px;
 }
 .main-content {
   text-align: center;
   padding: 0 20px;
 }
 .main-content-image {
+  /* margin-top: 20px; */
   width: 175px;
   height: 180px;
 }
